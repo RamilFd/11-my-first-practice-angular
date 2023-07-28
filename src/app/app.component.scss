@@ -1,0 +1,34 @@
+.wrapper {
+  max-width: 750px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.884);
+}
+.header {
+  height: 50px;
+  padding: 0px 20px;
+  background-color: rgb(236, 242, 248);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .header-name,
+  .header-list {
+    color: rgba(0, 0, 0, 0.775);
+    font-size: 22px;
+  }
+  .header-list {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    font-size: 18px;
+
+    a {
+      text-decoration: none;
+      color: #000000;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

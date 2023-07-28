@@ -1,0 +1,46 @@
+<div class="car">
+  <h2 class="carname">Автомобиль: <span>{{carName}} {{model}}</span>.</h2>
+  <div class="car-spec">
+    <h4>Характеристики автомобиля:</h4>
+    <ul>
+      <li>Год выпуска - {{year}}</li>
+      <li>Мощность двигателя - {{powerEngine}} л.с.</li>
+      <li>Коробка передач - {{kpp}}</li>
+      <li>Цвет кузова - {{color}}</li>
+      <li>Максимальная скорость - {{speed}} км/ч</li>
+      <li>Размер колес - {{wheels}}</li>
+    </ul>
+  </div>
+<div class="car-card">
+  <h5>Редактировать автомобиль</h5>
+  <button class="btn-option" type="button" (click)="hideBlock()">Редактировать</button>
+  <form class="form-car-card" *ngIf="isHide">
+    <input type="text" name="carName" [(ngModel)]="carName">
+    <input type="text" [(ngModel)]="model" name="model">
+    <input type="number" [(ngModel)]="year" name="year">
+    <input type="number" [(ngModel)]="powerEngine" name="powerEngine">
+    <input type="text" [(ngModel)]="kpp" name="kpp">
+    <input type="text" [(ngModel)]="color" name="color">
+    <input type="number" [(ngModel)]="speed" name="speed">
+    <input type="text" [(ngModel)]="wheels" name="wheels">
+  </form>
+</div>
+
+  <div class="car-options">
+    <h4>Дополнительные опции:</h4>
+    <form class="car-form" (submit)="addOption(option.value)">
+      <label for="option">Добавить опцию:</label>
+      <input type="text" id="option" placeholder="Добавить опцию" #option>
+      <button class="btn-option" type="submit">Добавить</button>
+    </form>
+    <ul>
+      <li *ngFor="let opt of options">
+        {{opt}} <button class="btn-delete" (click)="deleteOption(opt)">x</button>
+      </li>
+    </ul>
+  </div>
+  <h4>Выберите автомобиль:</h4>
+  <button (click)="carSelect('mercedes')">Mercedes</button>
+  <button (click)="carSelect('bmw')">BMW</button>
+  <button (click)="carSelect('audi')">Audi</button>
+</div>
